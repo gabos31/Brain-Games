@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 
 export default () => {
-  const uname = readlineSync.question(`\ngMay I have your name? `);
+  const text = '\nMay I have your name? ';
+  const uname = readlineSync.question(text);
   console.log(`Hello, ${uname}!`);
 };
