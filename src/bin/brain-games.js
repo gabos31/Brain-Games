@@ -2,6 +2,4 @@
 
 import username from '..';
 
-const text = 'Welcome to the Brain Games!';
-console.log(text);
 username();
