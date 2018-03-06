@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import username from '..';
+import { brain } from '..';
 
-username();
+brain();
