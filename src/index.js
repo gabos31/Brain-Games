@@ -1,7 +1,5 @@
 import readlineSync from 'readline-sync';
 import chalk from 'chalk';
-import * as even from './games/even';
-import * as calc from './games/calc';
 
 let username = '';
 export const brain = (task) => {
@@ -14,19 +12,13 @@ export const brain = (task) => {
   console.log(hello);
 };
 
-export const game = (name) => {
-  const func = eval(name);
-  brain(func.task);
-  let answer = '';
-  let x = '';
+export const game = (que, ans) => {
   for (let i = 0; i < 3; i += 1) {
-    x = func.n(i);
-    const quest = `Question: ${x}`;
-    console.log(quest);
-    answer = readlineSync.question('Yor answer: ');
-    if (func.check() === answer) console.log('Correct!');
+    console.log(`Question: ${que(i)}`);
+    const answer = readlineSync.question('Yor answer: ');
+    if (ans(i) === answer) console.log('Correct!');
     else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${func.check()}'.\nLet's try again, ${username}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${ans(i)}'.\nLet's try again, ${username}!`);
       return;
     }
   }
