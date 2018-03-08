@@ -1,17 +1,14 @@
 import chalk from 'chalk';
+import { cons } from 'hexlet-pairs';
 import * as index from '..';
 
 export default () => {
-  const task = `Answer "yes" ${chalk.bold('if')} number even otherwise answer "no".`;
-  index.brain(task);
-  let f = 0;
-  const que = () => {
-    f = Math.floor(Math.random() * 100);
-    return f;
+  const Task = `Answer "yes" ${chalk.bold('if')} number even otherwise answer "no".`;
+  index.Greetings(Task);
+  const MakeRound = () => {
+    const Question = Math.floor(Math.random() * 100);
+    const Answer = (Question % 2 === 0) ? 'yes' : 'no';
+    return cons(Question, Answer);
   };
-  const ans = () => {
-    if (f % 2 === 0) return 'yes';
-    return 'no';
-  };
-  index.game(que, ans);
+  index.GameEngine(MakeRound);
 };

@@ -1,26 +1,28 @@
 import readlineSync from 'readline-sync';
 import chalk from 'chalk';
+import { car, cdr } from 'hexlet-pairs';
 
-let username = '';
-export const brain = (task) => {
-  const welc = `${chalk.magenta('Welcome')} to the ${chalk.bold('Brain')} Games!`;
-  const name = '\nMay I have your name? ';
-  console.log(welc);
-  console.log(task);
-  username = readlineSync.question(name);
-  const hello = `Hello, ${username}!\n`;
+let Name = '';
+export const Greetings = (Task) => {
+  const Welcome = `${chalk.magenta('Welcome')} to the ${chalk.bold('Brain')} Games!`;
+  const QuestName = '\nMay I have your name? ';
+  console.log(Welcome);
+  console.log(Task);
+  Name = readlineSync.question(QuestName);
+  const hello = `Hello, ${Name}!\n`;
   console.log(hello);
 };
 
-export const game = (que, ans) => {
+export const GameEngine = (MakeRound) => {
   for (let i = 0; i < 3; i += 1) {
-    console.log(`Question: ${que(i)}`);
+    const Round = MakeRound();
+    console.log(`Question: ${car(Round)}`);
     const answer = readlineSync.question('Yor answer: ');
-    if (ans(i) === answer) console.log('Correct!');
+    if (cdr(Round) === answer) console.log('Correct!');
     else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${ans(i)}'.\nLet's try again, ${username}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${cdr(Round)}'.\nLet's try again, ${Name}!`);
       return;
     }
   }
-  console.log(`Congratulations, ${username}!`);
+  console.log(`Congratulations, ${Name}!`);
 };

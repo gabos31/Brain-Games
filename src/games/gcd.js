@@ -1,31 +1,19 @@
+import { cons } from 'hexlet-pairs';
 import * as index from '..';
 
 export default () => {
-  const task = 'Find the greatest common divisor of given numbers.';
-  index.brain(task);
-  let a = 0;
-  const que = () => {
-    let f = '';
-    const x = Math.floor(Math.random() * 100);
-    const y = Math.floor(Math.random() * 100);
-    f = `${x} ${y}`;
-    let n = 0;
-    let m = 0;
-    if (x < y) {
-      n = x;
-      m = y;
-    } else {
-      n = y;
-      m = x;
+  const Task = 'Find the greatest common divisor of given numbers.';
+  index.Greetings(Task);
+  const MakeRound = () => {
+    const Left = Math.floor(Math.random() * 100);
+    const Right = Math.floor(Math.random() * 100);
+    const n = (Left < Right) ? Left : Right;
+    const m = (Left < Right) ? Right : Left;
+    let i = n;
+    for (; i > 0; i -= 1) {
+      if (m % i === 0 && n % i === 0) break;
     }
-    for (let i = n; i > 0; i -= 1) {
-      if (n % i === 0 && m % i === 0) {
-        a = i;
-        break;
-      }
-    }
-    return f;
+    return cons(`${Left} ${Right}`, String(i));
   };
-  const ans = () => String(a);
-  index.game(que, ans);
+  index.GameEngine(MakeRound);
 };

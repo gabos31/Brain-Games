@@ -1,6 +1,6 @@
 {
   "name": "brain-games-g31",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "brain-games.js",
   "bin": {
@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "chalk": "^2.3.2",
+    "hexlet-pairs": "^1.0.5",
     "readline-sync": "^1.4.9"
   }
 }
