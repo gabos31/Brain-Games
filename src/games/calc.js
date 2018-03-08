@@ -1,26 +1,29 @@
 import { cons } from 'hexlet-pairs';
-import * as index from '..';
+import GameEngine from '..';
 
 export default () => {
   const Task = 'What is the result of the expression?';
-  index.Greetings(Task);
   const MakeRound = () => {
     const Left = Math.floor(Math.random() * 30);
     const Right = Math.floor(Math.random() * 30);
-    let i = '';
+    const Centr = Math.floor(Math.random() * 3) + 1;
     let r = 0;
-    if (Left % 2 === 0) {
-      i = '+';
-      r = Left + Right;
-    } else if (Left > Right) {
-      i = '-';
-      r = Left - Right;
-    } else if (Left < Right) {
-      i = '*';
-      r = Left * Right;
+    let i = '';
+    switch (Centr) {
+      case 1:
+        r = Left + Right;
+        i = '+';
+        break;
+      case 2:
+        r = Left - Right;
+        i = '-';
+        break;
+      default:
+        i = '*';
+        r = Left * Right;
+        break;
     }
     return cons(`${Left} ${i} ${Right}`, String(r));
   };
-  index.GameEngine(MakeRound);
+  GameEngine(cons(MakeRound, Task));
 };
-
