@@ -12,10 +12,10 @@ export default () => {
       return false;
     };
     const bal = (queToArray) => {
+      queToArray.sort((a, b) => ((a > b) ? 1 : -1));
       if (chek(queToArray)) return queToArray.join('');
       queToArray.splice(lenQue - 1, 1, String(Number(queToArray[lenQue - 1]) - 1));
       queToArray.splice(0, 1, String(Number(queToArray[0]) + 1));
-      queToArray.sort((a, b) => ((a > b) ? 1 : -1));
       return bal(queToArray);
     };
     return cons(question, bal(question.split('')));
