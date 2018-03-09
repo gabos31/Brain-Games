@@ -8,9 +8,12 @@ export default () => {
     const step = Math.floor(Math.random() * 5) + 2;
     const windowPos = Math.floor(Math.random() * 9) + 0;
     const arrQuest = [];
-    for (let i = start, n = 0; n < 10; i += step, n += 1) {
+    const makeQuest = (i, n) => {
+      if (n === 10) return arrQuest;
       arrQuest.push(i);
-    }
+      return makeQuest(i + step, n + 1);
+    };
+    makeQuest(start, 0);
     const answer = arrQuest[windowPos];
     arrQuest.splice(windowPos, 1, '..');
     return cons(arrQuest.join(' '), String(answer));
