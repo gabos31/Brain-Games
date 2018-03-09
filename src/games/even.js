@@ -1,13 +1,13 @@
 import chalk from 'chalk';
 import { cons } from 'hexlet-pairs';
-import GameEngine from '..';
+import gameEngine from '..';
 
 export default () => {
-  const Task = `Answer "yes" ${chalk.bold('if')} number even otherwise answer "no".`;
-  const MakeRound = () => {
-    const Question = Math.floor(Math.random() * 100);
-    const Answer = (Question % 2 === 0) ? 'yes' : 'no';
-    return cons(Question, Answer);
+  const task = `Answer "yes" ${chalk.bold('if')} number even otherwise answer "no".`;
+  const makeRound = () => {
+    const question = Math.floor(Math.random() * 100);
+    const result = (question % 2 === 0) ? 'yes' : 'no';
+    return cons(question, result);
   };
-  GameEngine(cons(MakeRound, Task));
+  gameEngine(cons(makeRound, task));
 };

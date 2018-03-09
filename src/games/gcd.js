@@ -1,21 +1,16 @@
 import { cons } from 'hexlet-pairs';
-import GameEngine from '..';
+import gameEngine from '..';
 
-const FindGCD = (x, y) => {
-  const n = (x < y) ? x : y;
-  const m = (x < y) ? y : x;
-  let i = n;
-  for (; i > 0; i -= 1) {
-    if (m % i === 0 && n % i === 0) break;
-  }
-  return i;
+const findGCD = (x, y) => {
+  if (y === 0) return x;
+  return findGCD(y, x % y);
 };
 export default () => {
-  const Task = 'Find the greatest common divisor of given numbers.';
-  const MakeRound = () => {
-    const Left = Math.floor(Math.random() * 100);
-    const Right = Math.floor(Math.random() * 100);
-    return cons(`${Left} ${Right}`, String(FindGCD(Left, Right)));
+  const task = 'Find the greatest common divisor of given numbers.';
+  const makeRound = () => {
+    const x = Math.floor(Math.random() * 100);
+    const y = Math.floor(Math.random() * 100);
+    return cons(`${x} ${y}`, String(findGCD(x, y)));
   };
-  GameEngine(cons(MakeRound, Task));
+  gameEngine(cons(makeRound, task));
 };

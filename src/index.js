@@ -2,28 +2,28 @@ import readlineSync from 'readline-sync';
 import chalk from 'chalk';
 import { car, cdr } from 'hexlet-pairs';
 
-export default (MakeGame) => {
-  const Welcome = `${chalk.magenta('Welcome')} to the ${chalk.bold('Brain')} Games!`;
-  const QuestName = '\nMay I have your name? ';
-  console.log(Welcome);
-  console.log(cdr(MakeGame));
-  const Name = readlineSync.question(QuestName);
-  const Hello = `Hello, ${Name}!\n`;
-  console.log(Hello);
-  const MakeRound = (i) => {
+export default (makeGame) => {
+  const welcome = `${chalk.magenta('Welcome')} to the ${chalk.bold('Brain')} Games!`;
+  const questName = '\nMay I have your name? ';
+  console.log(welcome);
+  console.log(cdr(makeGame));
+  const name = readlineSync.question(questName);
+  const hello = `Hello, ${name}!\n`;
+  console.log(hello);
+  const makeRound = (i) => {
     if (i === 0) {
-      console.log(`Congratulations, ${Name}!`);
+      console.log(`Congratulations, ${name}!`);
       return;
     }
-    const CurrentRound = car(MakeGame)();
-    console.log(`Question: ${car(CurrentRound)}`);
-    const CurrentAnswer = readlineSync.question('Yor answer: ');
-    if (cdr(CurrentRound) === CurrentAnswer) console.log('Correct!');
+    const currentRound = car(makeGame)();
+    console.log(`Question: ${car(currentRound)}`);
+    const currentAnswer = readlineSync.question('Yor answer: ');
+    if (cdr(currentRound) === currentAnswer) console.log('Correct!');
     else {
-      console.log(`'${CurrentAnswer}' is wrong answer ;(. Correct answer was '${cdr(CurrentRound)}'.\nLet's try again, ${Name}!`);
+      console.log(`'${currentAnswer}' is wrong answer ;(. Correct answer was '${cdr(currentRound)}'.\nLet's try again, ${name}!`);
       return;
     }
-    MakeRound(i - 1);
+    makeRound(i - 1);
   };
-  MakeRound(3);
+  makeRound(3);
 };
