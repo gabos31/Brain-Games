@@ -4,27 +4,21 @@ import gameEngine from '..';
 export default () => {
   const task = 'Balance the given number.';
   const makeRound = () => {
-    const question = String(Math.floor(Math.random() * 10000) + 100);
-    const questToArray = question.split('');
-    const comp = (a, b) => ((a > b) ? 1 : -1);
-    questToArray.sort(comp);
-    const lengthArr = questToArray.length;
-    let i = lengthArr - 2;
-    if ((Number(questToArray[lengthArr - 1]) === Number(questToArray[i])) &&
-    (Number(questToArray[lengthArr - 1]) === Number(questToArray[i]) + 1) &&
-    (Number(questToArray[lengthArr - 1]) === Number(questToArray[i]) - 1)) i -= 1;
-    else i -= 2;
-    while ((Number(questToArray[lengthArr - 1]) !== Number(questToArray[i])) &&
-    (Number(questToArray[lengthArr - 1]) !== Number(questToArray[i]) + 1) &&
-    (Number(questToArray[lengthArr - 1]) !== Number(questToArray[i]) - 1)) {
-      for (; i >= 0; i -= 1) {
-        questToArray[lengthArr - 1] = String(Number(questToArray[lengthArr - 1]) - 1);
-        questToArray[i] = String(Number(questToArray[i]) + 1);
-      }
-      questToArray.sort(comp);
-      i = 0;
-    }
-    return cons(question, questToArray.join(''));
+    const question = String(Math.floor(Math.random() * 5000));
+    const lenQue = question.length;
+    const chek = (arr) => {
+      if (Number(arr[lenQue - 1]) === Number(arr[0]) + 1 ||
+      Number(arr[lenQue - 1]) === Number(arr[0]) || lenQue === 1) return true;
+      return false;
+    };
+    const bal = (queToArray) => {
+      if (chek(queToArray)) return queToArray.join('');
+      queToArray.splice(lenQue - 1, 1, String(Number(queToArray[lenQue - 1]) - 1));
+      queToArray.splice(0, 1, String(Number(queToArray[0]) + 1));
+      queToArray.sort((a, b) => ((a > b) ? 1 : -1));
+      return bal(queToArray);
+    };
+    return cons(question, bal(question.split('')));
   };
   gameEngine(cons(makeRound, task));
 };

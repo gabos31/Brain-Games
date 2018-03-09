@@ -1,6 +1,6 @@
 {
   "name": "brain-games-g31",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "main": "brain-games.js",
   "bin": {
