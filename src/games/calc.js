@@ -1,12 +1,12 @@
 import { cons } from 'hexlet-pairs';
-import gameEngine from '..';
+import gameEngine, { makeRandom } from '..';
 
 export default () => {
   const task = 'What is the result of the expression?';
   const makeRound = () => {
-    const left = Math.floor(Math.random() * 30);
-    const right = Math.floor(Math.random() * 30);
-    const middle = Math.floor(Math.random() * 3) + 1;
+    const left = makeRandom(0, 30);
+    const right = makeRandom(0, 30);
+    const middle = makeRandom(1, 3);
     let result = 0;
     let i = '';
     switch (middle) {

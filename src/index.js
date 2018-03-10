@@ -2,6 +2,8 @@ import readlineSync from 'readline-sync';
 import chalk from 'chalk';
 import { car, cdr } from 'hexlet-pairs';
 
+export const makeRandom = (x, y) => Math.floor(Math.random() * y) + x;
+
 export default (makeGame) => {
   const welcome = `${chalk.magenta('Welcome')} to the ${chalk.bold('Brain')} Games!`;
   const questName = '\nMay I have your name? ';

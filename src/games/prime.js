@@ -1,17 +1,17 @@
 import chalk from 'chalk';
 import { cons } from 'hexlet-pairs';
-import gameEngine from '..';
+import gameEngine, { makeRandom } from '..';
 
 export default () => {
   const task = `Is ${chalk.bold('this')} number prime?`;
   const makeRound = () => {
-    const x = Math.floor(Math.random() * 101) + 2;
+    const x = makeRandom(2, 100);
     const makeResult = (i) => {
-      if (i > x / 2) return 'yes';
-      if (x % i === 0) return 'no';
+      if (i > x / 2) return true;
+      if (x % i === 0) return false;
       return makeResult(i + 1);
     };
-    return cons(x, makeResult(2));
+    return cons(x, (makeResult(2)) ? 'yes' : 'no');
   };
   gameEngine(cons(makeRound, task));
 };
