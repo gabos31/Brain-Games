@@ -6,14 +6,16 @@ export default () => {
   const task = 'Balance the given number.';
   const makeRound = () => {
     const question = String(makeRandom(0, 5000));
-    const makeAnswer = (arr) => {
-      arr.sort((a, b) => a - b);
-      if (isBalance(arr[arr.length - 1], arr[0]) || arr.length === 1) return arr.join('');
-      arr.splice(arr.length - 1, 1, arr[arr.length - 1] - 1);
-      arr.splice(0, 1, arr[0] + 1);
-      return makeAnswer(arr);
+    const makeAnswer = (str) => {
+      const asstdStr = str.split('').sort((a, b) => a - b).join('');
+      const firstDigit = Number(asstdStr[0]);
+      const lastDigit = Number(asstdStr[asstdStr.length - 1]);
+      const middleDigits = asstdStr.substring(1, asstdStr.length - 1);
+      if (isBalance(lastDigit, firstDigit) || asstdStr.length === 1) return asstdStr;
+      const str2 = `${String(firstDigit + 1)}${middleDigits}${String(lastDigit - 1)}`;
+      return makeAnswer(str2);
     };
-    return cons(question, makeAnswer(question.split('').map(Number)));
+    return cons(question, makeAnswer(question));
   };
   gameEngine(cons(makeRound, task));
 };
