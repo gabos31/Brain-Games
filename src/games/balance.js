@@ -12,8 +12,8 @@ export default () => {
       const lastDigit = Number(asstdStr[asstdStr.length - 1]);
       const middleDigits = asstdStr.substring(1, asstdStr.length - 1);
       if (isBalance(lastDigit, firstDigit) || asstdStr.length === 1) return asstdStr;
-      const str2 = `${String(firstDigit + 1)}${middleDigits}${String(lastDigit - 1)}`;
-      return makeAnswer(str2);
+      const balancingStep = `${String(firstDigit + 1)}${middleDigits}${String(lastDigit - 1)}`;
+      return makeAnswer(balancingStep);
     };
     return cons(question, makeAnswer(question));
   };
