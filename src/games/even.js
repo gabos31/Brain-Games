@@ -1,5 +1,6 @@
 import { cons } from 'hexlet-pairs';
-import gameEngine, { makeRandom } from '..';
+import gameEngine from '..';
+import makeRandom from '../functions';
 
 export default () => {
   const task = 'Answer "yes" if number even otherwise answer "no".';

@@ -1,8 +1,6 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
-export const makeRandom = (x, y) => Math.floor(Math.random() * y) + x;
-
 export default (makeGame) => {
   console.log('Welcome to the Brain Games!');
   console.log(cdr(makeGame));
