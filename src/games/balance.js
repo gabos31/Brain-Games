@@ -5,19 +5,20 @@ export default () => {
   const task = 'Balance the given number.';
   const makeRound = () => {
     const question = String(makeRandom(0, 5000));
-    const checkingBalance = (arr) => {
-      if (Number(arr[arr.length - 1]) === Number(arr[0]) + 1 ||
-      Number(arr[arr.length - 1]) === Number(arr[0]) || arr.length === 1) return true;
+    const isBalance = (x, y) => {
+      if (x === y + 1 || x === y) return true;
       return false;
     };
-    const balancing = (arr) => {
+    const makeAnswer = (arr) => {
       arr.sort((a, b) => ((a > b) ? 1 : -1));
-      if (checkingBalance(arr)) return arr.join('');
-      arr.splice(arr.length - 1, 1, String(Number(arr[arr.length - 1]) - 1));
-      arr.splice(0, 1, String(Number(arr[0]) + 1));
-      return balancing(arr);
+      const x = Number(arr[arr.length - 1]);
+      const y = Number(arr[0]);
+      if (isBalance(x, y) || arr.length === 1) return arr.join('');
+      arr.splice(arr.length - 1, 1, String(x - 1));
+      arr.splice(0, 1, String(y + 1));
+      return makeAnswer(arr);
     };
-    return cons(question, balancing(question.split('')));
+    return cons(question, makeAnswer(question.split('')));
   };
   gameEngine(cons(makeRound, task));
 };
