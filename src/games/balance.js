@@ -10,15 +10,15 @@ export default () => {
       return false;
     };
     const makeAnswer = (arr) => {
-      arr.sort((a, b) => ((a > b) ? 1 : -1));
-      const x = Number(arr[arr.length - 1]);
-      const y = Number(arr[0]);
-      if (isBalance(x, y) || arr.length === 1) return arr.join('');
-      arr.splice(arr.length - 1, 1, String(x - 1));
-      arr.splice(0, 1, String(y + 1));
+      arr.sort((a, b) => a - b);
+      const x = arr[arr.length - 1];
+      const y = arr[0];
+      if (isBalance(x, y) || arr.length === 1) return String(arr.join(''));
+      arr.splice(arr.length - 1, 1, x - 1);
+      arr.splice(0, 1, y + 1);
       return makeAnswer(arr);
     };
-    return cons(question, makeAnswer(question.split('')));
+    return cons(question, makeAnswer(question.split('').map(Number)));
   };
   gameEngine(cons(makeRound, task));
 };
