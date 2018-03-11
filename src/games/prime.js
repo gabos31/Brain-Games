@@ -1,9 +1,8 @@
-import chalk from 'chalk';
 import { cons } from 'hexlet-pairs';
 import gameEngine, { makeRandom } from '..';
 
 export default () => {
-  const task = `Is ${chalk.bold('this')} number prime?`;
+  const task = 'Is this number prime?';
   const makeRound = () => {
     const x = makeRandom(2, 100);
     const makeResult = (i) => {
