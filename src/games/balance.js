@@ -10,7 +10,7 @@ export default () => {
       arr.sort((a, b) => a - b);
       const firstDigit = arr[0];
       const lastDigit = arr[arr.length - 1];
-      if (isBalance(lastDigit, firstDigit) || arr.length === 1) return String(arr.join(''));
+      if (isBalance(lastDigit, firstDigit) || arr.length === 1) return arr.join('');
       arr.splice(arr.length - 1, 1, lastDigit - 1);
       arr.splice(0, 1, firstDigit + 1);
       return makeAnswer(arr);
