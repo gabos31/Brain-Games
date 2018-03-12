@@ -1,6 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import gameEngine from '..';
-import makeRandom, { isBalance } from '../functions';
+import gameEngine, { makeRandom } from '..';
 
 export default () => {
   const task = 'Balance the given number.';
@@ -11,7 +10,7 @@ export default () => {
       const firstDigit = Number(asstdStr[0]);
       const lastDigit = Number(asstdStr[asstdStr.length - 1]);
       const middleDigits = asstdStr.substring(1, asstdStr.length - 1);
-      if (isBalance(lastDigit, firstDigit) || asstdStr.length === 1) return asstdStr;
+      if (lastDigit - firstDigit <= 1 || asstdStr.length === 1) return asstdStr;
       const balancingStep = `${String(firstDigit + 1)}${middleDigits}${String(lastDigit - 1)}`;
       return makeAnswer(balancingStep);
     };

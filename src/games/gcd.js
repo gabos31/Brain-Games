@@ -1,6 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import gameEngine from '..';
-import makeRandom from '../functions';
+import gameEngine, { makeRandom } from '..';
 
 const findGCD = (x, y) => {
   if (y === 0) return x;

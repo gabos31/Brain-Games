@@ -1,6 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import gameEngine from '..';
-import makeRandom from '../functions';
+import gameEngine, { makeRandom } from '..';
 
 export default () => {
   const task = 'What number is missing in this progression?';
