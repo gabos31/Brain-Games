@@ -5,4 +5,3 @@
 A set of __terminal-based__ mini-games.
 
 All games continuous until you had three right answers in a row.
-___
