@@ -1,7 +1,7 @@
 # Brain Games
 
 [![Build Status](https://travis-ci.org/gabos31/Brain-Games.svg?branch=master)](https://travis-ci.org/gabos31/Brain-Games)
-[![Maintainability](https://api.codeclimate.com/v1/badges/10b2c306c76d5e22d5bc/maintainability)](https://codeclimate.com/github/gabos31/project-lvl1-s236/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f3c79a88507690848958/maintainability)](https://codeclimate.com/github/gabos31/Brain-Games/maintainability)
 
 ***
 ## Description
